@@ -17,7 +17,7 @@
           <% if current_user %>
           <p><%= current_user.name %> is signed in | <%= link_to 'logout', logout_path, method: :delete %></p>
           <%else %>
-          <p>Anonymous User</p>
+          <p>Anonymous User | <%= link_to "login", login_path %></p>
           <% end %>
         </div>
       </div>

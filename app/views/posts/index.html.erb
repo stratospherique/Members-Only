@@ -1,6 +1,10 @@
 <h1>List of posts</h1>
-<% Post.all.each do |post| %>
+<% @posts.each do |post| %>
 <ul>
-  <li> <%= post.title %> | <%= post.body %>  </li>
+  <li> <%= post.title %> | <%= post.body %> | <% if logged_in? %> <%= post.user.name %> <% end %> </li>
 </ul>
+<% end %>
+
+<% if logged_in? %>
+  <%= link_to "Create a new post", new_post_path%>
 <% end %>
