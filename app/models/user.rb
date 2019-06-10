@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
   before_save {self.email.downcase!}
+  before_create :remember_me
 
 
   validates :name,presence: true,uniqueness: true, length: {minimum: 6}
@@ -25,5 +26,11 @@ class User < ApplicationRecord
     update_attribute(:remember_digest,User.digest(remember_token)) 
   end
 
+  private
+  
+  def remember_me
+    self.remember_token = User.new_token
+    self.remember_digest = User.digest(remember_token)
+  end
   
 end
