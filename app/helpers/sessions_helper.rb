@@ -20,4 +20,13 @@ module SessionsHelper
       user = nil
     end
   end
+
+  def logged_in?
+    !!current_user
+  end
+
+  def current_user=(user)
+    session[:user_id] = user.id
+    current_user=current_user
+  end
 end

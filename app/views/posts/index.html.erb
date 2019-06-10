@@ -1,0 +1,6 @@
+<h1>List of posts</h1>
+<% Post.all.each do |post| %>
+<ul>
+  <li> <%= post.title %> | <%= post.body %>  </li>
+</ul>
+<% end %>

@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
+  has_many :posts, dependent: :destroy
+
   before_save {self.email.downcase!}
   before_create :remember_me
 
@@ -25,6 +27,8 @@ class User < ApplicationRecord
     self.remember_token = User.new_token
     update_attribute(:remember_digest,User.digest(remember_token)) 
   end
+
+  
 
   private
   

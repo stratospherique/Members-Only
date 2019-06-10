@@ -1,7 +1,6 @@
-require './app/helpers/sessions_helper.rb'
-class SessionsController < ApplicationController
-  include SessionsHelper
 
+class SessionsController < ApplicationController
+  
   
   def new
     
@@ -31,7 +30,7 @@ class SessionsController < ApplicationController
   private
 
     def log_in(user)
-      session[:user_id] = user.id
+      current_user = user
     end
 
     def log_out(user)
