@@ -12,7 +12,8 @@
   <body>
     <header>
       <div class="header">
-        <div class="header-nav"></div>
+        <div class="header-nav">
+        </div>
         <div class="avatar">
           <% if current_user %>
           <p><%= current_user.name %> is signed in | <%= link_to 'logout', logout_path, method: :delete %></p>
